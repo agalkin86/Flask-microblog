@@ -1,17 +1,9 @@
 # -*- coding: utf-8 -*-
 from app import blog
+from flask import render_template
 
 @blog.route('/')
 @blog.route('/index')
 def index():
-    user = {'username':'Andrey'}
-    return '''
-    <html>
-        <head>
-            <title>Home Page - Microblog</title>
-        </head>
-        <body>
-            <h1>Hello, ''' + user['username'] + '''!</h1>
-        </body>
-    </html>
-    '''
+    user = {'username': 'Galkin Andrey'}
+    return render_template('index.html', titel='Home', user=user) # user=user['username'] / {{user}}
