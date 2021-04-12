@@ -1,8 +1,8 @@
-"""Post table
+"""empty message
 
-Revision ID: 96dde51c3679
-Revises: 9afbf7d0444f
-Create Date: 2021-04-09 22:56:22.711259
+Revision ID: fe5b78ebe172
+Revises: e0053b1cddc5
+Create Date: 2021-04-12 10:28:44.341873
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '96dde51c3679'
-down_revision = '9afbf7d0444f'
+revision = 'fe5b78ebe172'
+down_revision = 'e0053b1cddc5'
 branch_labels = None
 depends_on = None
 
@@ -22,8 +22,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('body', sa.String(length=140), nullable=True),
     sa.Column('timestamp', sa.DateTime(), nullable=True),
-    sa.Column('di_user', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['di_user'], ['user.id'], ),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_post_timestamp'), 'post', ['timestamp'], unique=False)
