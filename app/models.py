@@ -53,7 +53,7 @@ class User(UserMixin, db.Model):
 
     def is_following(self, user):
         return self.followed.filter(
-            followers.c.followed_id == user.id).count() > 
+            followers.c.followed_id == user.id).count()
             
     def followed_posts(self):
         followed = Post.query.join(followers, (followers.c.followed_id == Post.user_id)).filter(followers.c.follower_id == self.id)
