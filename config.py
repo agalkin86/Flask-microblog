@@ -17,3 +17,6 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['galkinandrey86@gmail.com']
+
+    # настройки элементов на странице
+    POSTS_PER_PAGE = 20
